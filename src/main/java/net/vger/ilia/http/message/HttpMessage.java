@@ -1,8 +1,8 @@
-package net.vger.ilea.http.message;
+package net.vger.ilia.http.message;
 
 import java.util.List;
 
-import net.vger.ilea.http.message.component.HttpHeader;
+import net.vger.ilia.http.message.component.HttpHeader;
 
 public interface HttpMessage {
 

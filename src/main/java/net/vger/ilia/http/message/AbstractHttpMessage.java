@@ -1,11 +1,11 @@
-package net.vger.ilea.http.message;
+package net.vger.ilia.http.message;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import net.vger.ilea.http.message.component.HttpHeader;
+import net.vger.ilia.http.message.component.HttpHeader;
 
 public class AbstractHttpMessage implements HttpMessage {
 

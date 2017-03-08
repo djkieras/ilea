@@ -1,7 +1,7 @@
-package net.vger.ilea.http.message.impl;
+package net.vger.ilia.http.message.impl;
 
-import net.vger.ilea.common.HttpRequestMethod;
-import net.vger.ilea.http.message.AbstractHttpMessage;
+import net.vger.ilia.common.HttpRequestMethod;
+import net.vger.ilia.http.message.AbstractHttpMessage;
 
 public class HttpRequest extends AbstractHttpMessage {
 
