@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.http.client.utils.CloneUtils;
 
 import net.vger.ilia.http.message.component.HttpHeader;
 
-public class AbstractHttpMessage implements HttpMessage {
+public class AbstractHttpMessage implements HttpMessage, Cloneable {
 
 	private List<HttpHeader> httpHeaders;
+	private String body;
 	
 	@Override
 	public List<HttpHeader> getHttpHeaders() {
@@ -49,9 +51,22 @@ public class AbstractHttpMessage implements HttpMessage {
 		this.httpHeaders = null;
 	}
 
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return CloneUtils.cloneObject(this);
 	}
 	
 }
