@@ -51,10 +51,12 @@ public class AbstractHttpMessage implements HttpMessage, Cloneable {
 		this.httpHeaders = null;
 	}
 
+	@Override
 	public String getBody() {
 		return body;
 	}
 
+	@Override
 	public void setBody(String body) {
 		this.body = body;
 	}

@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import net.vger.ilia.common.HttpRequestMethod;
 import net.vger.ilia.http.message.AbstractHttpMessage;
 import net.vger.ilia.http.message.HttpRequest;

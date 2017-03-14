@@ -1,0 +1,9 @@
+request:
+  method: POST
+  url: https://google.com
+  headers:
+  queryParameters:
+response:
+  status: 200
+  body: >
+    {test: hello}
