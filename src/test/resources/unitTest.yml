@@ -5,5 +5,11 @@ request:
   queryParameters:
 response:
   status: 200
-  body: >
-    {test: hello}
+  body: 
+    test: hello
+    anotherTest:
+      yes:
+        - 1
+      no:
+        - positive
+        - negative

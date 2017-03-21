@@ -23,8 +23,8 @@ public interface HttpMessage {
 	
 	void clearHttpHeaders();
 	
-	String getBody() ;
+	Object getBody() ;
 
-	void setBody(String body) ;
+	void setBody(Object body) ;
 
 }

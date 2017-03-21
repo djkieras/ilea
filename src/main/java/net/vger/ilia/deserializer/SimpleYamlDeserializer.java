@@ -45,8 +45,13 @@ public class SimpleYamlDeserializer extends StdDeserializer<RequestResponse> {
 		JsonNode responseNode = mainNode.get("response");
 		HttpResponse response = mapper.readValue(responseNode.traverse(mapper), SimpleHttpResponse.class);
         LOG.debug("HttpResponse = " + response);
-		
+        System.out.println("HttpResponse = " + response);
+        //System.out.println(mapper.readValue(response.getBody(), Map.class));
+        
+        System.out.println(mapper.writeValueAsString(response.getBody()));
+        System.out.println(response.getBody().getClass().getName());
 		return new RequestResponse(request, response);
+		
 	}
 
 }

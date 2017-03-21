@@ -11,7 +11,7 @@ import net.vger.ilia.http.message.component.HttpHeader;
 public class AbstractHttpMessage implements HttpMessage, Cloneable {
 
 	private List<HttpHeader> httpHeaders;
-	private String body;
+	private Object body;
 	
 	@Override
 	public List<HttpHeader> getHttpHeaders() {
@@ -52,12 +52,12 @@ public class AbstractHttpMessage implements HttpMessage, Cloneable {
 	}
 
 	@Override
-	public String getBody() {
+	public Object getBody() {
 		return body;
 	}
 
 	@Override
-	public void setBody(String body) {
+	public void setBody(Object body) {
 		this.body = body;
 	}
 

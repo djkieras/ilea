@@ -24,12 +24,15 @@ public class RequestResponse {
 	public HttpRequest getRequest() {
 		return request;
 	}
+	
 	public void setRequest(HttpRequest request) {
 		this.request = request;
 	}
+	
 	public HttpResponse getResponse() {
 		return response;
 	}
+	
 	public void setResponse(HttpResponse response) {
 		this.response = response;
 	}
