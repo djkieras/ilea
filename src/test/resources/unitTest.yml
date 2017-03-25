@@ -2,7 +2,11 @@ request:
   method: POST
   url: https://google.com
   headers:
+    - name: Accept
+      value: text/json
   queryParameters:
+     - name: hello
+       value: goodbye
 response:
   status: 200
   body: 

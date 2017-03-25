@@ -57,8 +57,8 @@ public class RequestSender {
 			if (entity != null && httpMethod instanceof HttpEntityEnclosingRequest) {
 				((HttpEntityEnclosingRequest)httpMethod).setEntity(entity);
 			}
-			request.setUrl(request.getUrl());
 			URIBuilder uriBuilder = new URIBuilder(request.getUrl().toString());
+			uriBuilder.setPort(8089);
 			for (NameValue nv : request.getQueryParameters()) {
 				uriBuilder.addParameter(nv.getName(), nv.getValue());
 			}
@@ -66,7 +66,7 @@ public class RequestSender {
 			for (NameValue nv : request.getHttpHeaders()) {
 				httpMethod.setHeader(nv.getName(), nv.getValue());
 			}
-			
+			System.out.println(httpMethod);
 			try (CloseableHttpResponse httpResponse = httpClient.execute(httpMethod)) {
 				System.out.println(httpResponse);
 			}
