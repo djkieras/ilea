@@ -20,8 +20,8 @@ import com.github.tomakehurst.wiremock.junit.WireMockClassRule;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import net.vger.ilia.core.RequestResponse;
-import net.vger.ilia.http.request.RequestSender;
-import net.vger.ilia.processor.YamlDeserializer;
+import net.vger.ilia.core.deserializer.YamlDeserializer;
+import net.vger.ilia.core.engine.RequestSender;
 
 public class RequestSenderTest {
 
@@ -35,8 +35,7 @@ public class RequestSenderTest {
 	public void testRequestSender() {
 		try {
 			RequestResponse rr = YamlDeserializer.deserialize("unitTest.yml");
-			rr.getRequest().setUrl(new URL("http://localhost:8089/yo"));
-			wireMockRule.stubFor(post(urlMatching("/yo.*"))
+			wireMockRule.stubFor(post(urlMatching("/resource.*"))
 					.withHeader("Accept", equalTo("text/json"))
 					.withQueryParam(rr.getRequest().getQueryParameters().get(0).getName(), equalTo(rr.getRequest().getQueryParameters().get(0).getValue()))
 					.willReturn(aResponse().withStatus(200).withHeader("Content-Type", "text/json")

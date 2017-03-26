@@ -1,4 +1,4 @@
-package net.vger.ilia.http.message;
+package net.vger.ilia.core.http.message;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

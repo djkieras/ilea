@@ -1,4 +1,4 @@
-package net.vger.ilia.http.message;
+package net.vger.ilia.core.http.message;
 
 import java.net.URL;
 import java.util.List;
@@ -7,8 +7,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import net.vger.ilia.common.HttpRequestMethod;
-import net.vger.ilia.http.message.component.QueryParameter;
+import net.vger.ilia.core.HttpRequestMethod;
+import net.vger.ilia.core.http.message.component.QueryParameter;
 
 @XmlRootElement(name="request")
 public interface HttpRequest extends HttpMessage {
@@ -17,6 +17,11 @@ public interface HttpRequest extends HttpMessage {
 	URL getUrl();
 	
 	void setUrl(URL url);
+	
+	@JsonProperty(required=false, value="port")
+	Integer getPort();
+	
+	void setPort(Integer port);
 	
 	@JsonProperty(required=true, value="method")
 	HttpRequestMethod getHttpRequestMethod();

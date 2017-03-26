@@ -1,4 +1,4 @@
-package net.vger.ilia.model;
+package net.vger.ilia.core.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

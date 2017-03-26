@@ -2,7 +2,7 @@ package net.vger.ilia.test.processor;
 
 import org.junit.Test;
 
-import net.vger.ilia.processor.YamlDeserializer;
+import net.vger.ilia.core.deserializer.YamlDeserializer;
 
 public class YamlDeserializerTest {
 

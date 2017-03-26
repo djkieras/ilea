@@ -1,4 +1,4 @@
-package net.vger.ilia.deserializer;
+package net.vger.ilia.core.deserializer;
 
 import java.io.IOException;
 
@@ -13,10 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import net.vger.ilia.core.RequestResponse;
-import net.vger.ilia.http.message.HttpRequest;
-import net.vger.ilia.http.message.HttpResponse;
-import net.vger.ilia.http.message.impl.SimpleHttpRequest;
-import net.vger.ilia.http.message.impl.SimpleHttpResponse;
+import net.vger.ilia.core.http.message.HttpRequest;
+import net.vger.ilia.core.http.message.HttpResponse;
+import net.vger.ilia.core.http.message.impl.SimpleHttpRequest;
+import net.vger.ilia.core.http.message.impl.SimpleHttpResponse;
 
 public class SimpleYamlDeserializer extends StdDeserializer<RequestResponse> {
 

@@ -1,6 +1,7 @@
 request:
   method: POST
-  url: https://google.com
+  url: http://localhost/resource
+  port: 8089
   headers:
     - name: Accept
       value: text/json

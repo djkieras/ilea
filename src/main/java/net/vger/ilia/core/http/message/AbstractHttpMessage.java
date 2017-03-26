@@ -1,4 +1,4 @@
-package net.vger.ilia.http.message;
+package net.vger.ilia.core.http.message;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.http.client.utils.CloneUtils;
 
-import net.vger.ilia.http.message.component.HttpHeader;
+import net.vger.ilia.core.http.message.component.HttpHeader;
 
 public class AbstractHttpMessage implements HttpMessage, Cloneable {
 

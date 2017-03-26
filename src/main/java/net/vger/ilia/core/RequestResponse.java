@@ -2,9 +2,9 @@ package net.vger.ilia.core;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import net.vger.ilia.deserializer.SimpleYamlDeserializer;
-import net.vger.ilia.http.message.HttpRequest;
-import net.vger.ilia.http.message.HttpResponse;
+import net.vger.ilia.core.deserializer.SimpleYamlDeserializer;
+import net.vger.ilia.core.http.message.HttpRequest;
+import net.vger.ilia.core.http.message.HttpResponse;
 
 @JsonDeserialize(using = SimpleYamlDeserializer.class)
 public class RequestResponse {

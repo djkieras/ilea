@@ -1,10 +1,10 @@
-package net.vger.ilia.http.message;
+package net.vger.ilia.core.http.message;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import net.vger.ilia.http.message.component.HttpHeader;
+import net.vger.ilia.core.http.message.component.HttpHeader;
 
 public interface HttpMessage {
 

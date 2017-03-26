@@ -1,4 +1,4 @@
-package net.vger.ilia.processor;
+package net.vger.ilia.core.deserializer;
 
 import java.io.IOException;
 import java.io.InputStream;

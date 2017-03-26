@@ -1,17 +1,18 @@
-package net.vger.ilia.http.message.impl;
+package net.vger.ilia.core.http.message.impl;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.vger.ilia.common.HttpRequestMethod;
-import net.vger.ilia.http.message.AbstractHttpMessage;
-import net.vger.ilia.http.message.HttpRequest;
-import net.vger.ilia.http.message.component.QueryParameter;
+import net.vger.ilia.core.HttpRequestMethod;
+import net.vger.ilia.core.http.message.AbstractHttpMessage;
+import net.vger.ilia.core.http.message.HttpRequest;
+import net.vger.ilia.core.http.message.component.QueryParameter;
 
 public class SimpleHttpRequest extends AbstractHttpMessage implements HttpRequest {
 
 	private URL url;
+	private Integer port;
 	private HttpRequestMethod httpRequestMethod;
 	private List<QueryParameter> queryParameters;
 
@@ -25,6 +26,16 @@ public class SimpleHttpRequest extends AbstractHttpMessage implements HttpReques
 		this.url = url;
 	}
 
+	@Override
+	public Integer getPort() {
+		return port;
+	}
+	
+	@Override
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+	
 	@Override
 	public HttpRequestMethod getHttpRequestMethod() {
 		return httpRequestMethod;

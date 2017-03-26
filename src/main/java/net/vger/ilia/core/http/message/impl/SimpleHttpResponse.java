@@ -1,7 +1,7 @@
-package net.vger.ilia.http.message.impl;
+package net.vger.ilia.core.http.message.impl;
 
-import net.vger.ilia.http.message.AbstractHttpMessage;
-import net.vger.ilia.http.message.HttpResponse;
+import net.vger.ilia.core.http.message.AbstractHttpMessage;
+import net.vger.ilia.core.http.message.HttpResponse;
 
 public class SimpleHttpResponse extends AbstractHttpMessage implements HttpResponse {
 

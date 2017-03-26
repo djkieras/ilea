@@ -1,4 +1,4 @@
-package net.vger.ilia.http.request;
+package net.vger.ilia.core.engine;
 
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.http.HttpEntity;
@@ -18,8 +18,8 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import net.vger.ilia.http.message.HttpRequest;
-import net.vger.ilia.model.NameValue;
+import net.vger.ilia.core.http.message.HttpRequest;
+import net.vger.ilia.core.model.NameValue;
 
 public class RequestSender {
 
@@ -58,7 +58,7 @@ public class RequestSender {
 				((HttpEntityEnclosingRequest)httpMethod).setEntity(entity);
 			}
 			URIBuilder uriBuilder = new URIBuilder(request.getUrl().toString());
-			uriBuilder.setPort(8089);
+			uriBuilder.setPort(request.getPort());
 			for (NameValue nv : request.getQueryParameters()) {
 				uriBuilder.addParameter(nv.getName(), nv.getValue());
 			}

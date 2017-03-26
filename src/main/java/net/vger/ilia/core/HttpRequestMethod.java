@@ -1,4 +1,4 @@
-package net.vger.ilia.common;
+package net.vger.ilia.core;
 
 public enum HttpRequestMethod {
 
