@@ -4,6 +4,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
+import static org.junit.Assert.fail;
 
 import org.apache.http.HttpResponse;
 import org.junit.ClassRule;
@@ -41,8 +42,8 @@ public class RequestSenderTest {
 			LOG.debug(response.toString());
 			//do matching here of the response
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
+			fail();
 		}
 	}
 
