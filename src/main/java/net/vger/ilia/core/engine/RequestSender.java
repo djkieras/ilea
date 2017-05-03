@@ -3,6 +3,7 @@ package net.vger.ilia.core.engine;
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -15,6 +16,8 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,9 +26,12 @@ import net.vger.ilia.core.model.NameValue;
 
 public class RequestSender {
 
-	public static void sendRequest(HttpRequest request) throws Exception {
+	private static Logger LOG = LoggerFactory.getLogger(RequestSender.class);
+	
+	public static HttpResponse sendRequest(HttpRequest request) throws Exception {
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 			HttpRequestBase httpMethod = null;
+			HttpResponse response;
 			ObjectMapper mapper = new ObjectMapper();
 			HttpEntity entity = new ByteArrayEntity(mapper.writeValueAsString(request.getBody()).getBytes());
 			
@@ -66,10 +72,12 @@ public class RequestSender {
 			for (NameValue nv : request.getHttpHeaders()) {
 				httpMethod.setHeader(nv.getName(), nv.getValue());
 			}
-			System.out.println(httpMethod);
+			LOG.debug(httpMethod.toString());
 			try (CloseableHttpResponse httpResponse = httpClient.execute(httpMethod)) {
-				System.out.println(httpResponse);
+				LOG.debug(httpResponse.toString());
+				response = httpResponse;
 			}
+			return response;
 		}
 	}
 

@@ -1,23 +1,18 @@
 package net.vger.ilia.test.processor;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.assertEquals;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 
-import java.io.IOException;
-import java.net.URL;
-
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import org.apache.http.HttpResponse;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.github.tomakehurst.wiremock.http.Request;
 import com.github.tomakehurst.wiremock.junit.WireMockClassRule;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 import net.vger.ilia.core.RequestResponse;
 import net.vger.ilia.core.deserializer.YamlDeserializer;
@@ -25,6 +20,8 @@ import net.vger.ilia.core.engine.RequestSender;
 
 public class RequestSenderTest {
 
+	private static Logger LOG = LoggerFactory.getLogger(RequestSenderTest.class);
+	
 	@ClassRule
 	public static WireMockClassRule wireMockRule = new WireMockClassRule(8089);
 
@@ -40,7 +37,9 @@ public class RequestSenderTest {
 					.withQueryParam(rr.getRequest().getQueryParameters().get(0).getName(), equalTo(rr.getRequest().getQueryParameters().get(0).getValue()))
 					.willReturn(aResponse().withStatus(200).withHeader("Content-Type", "text/json")
 							.withBody("Some content")));
-			RequestSender.sendRequest(rr.getRequest());
+			HttpResponse response = RequestSender.sendRequest(rr.getRequest());
+			LOG.debug(response.toString());
+			//do matching here of the response
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
